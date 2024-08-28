@@ -1,0 +1,57 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto', sans-serif;
+    background-color: #252525;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 1300px;
+    height: 80px;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
+.header-logo {
+    height: 80px; /* Висота логотипа зафіксована на рівні висоти header */
+    object-fit: contain;
+    display: block;
+    text-decoration: none; /* Прибрати підкреслення */
+}
+
+.header-meny {
+    display: flex;
+    align-items: center;
+}
+
+.header-meny a {
+    text-decoration: none;
+    color: #00BFF5;
+    font-size: 18px;
+    margin-right: 25px;
+    position: relative;
+    padding: 5px 0;
+    overflow: hidden;
+    user-select: none; /* Запобігає виділенню тексту */
+}
+
+.header-meny a::before {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100%;
+    height: 2px;
+    background: #FF81B2;
+    transform: translateX(-50%) scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.header-meny a:hover::before {
+    transform: translateX(-50%) scaleX(1);
+}
