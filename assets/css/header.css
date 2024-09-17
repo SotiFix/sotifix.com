@@ -14,7 +14,7 @@
 .header-logo {
     width: 250px;
     height: 100%;
-    background-image: url('path-to-logo.png'); /* Шлях до логотипу */
+    background-image: url('/assets/images/logo.png'); /* Шлях до логотипу */
     background-size: contain;
     background-repeat: no-repeat;
     background-position: left center;
