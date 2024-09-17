@@ -1,57 +1,69 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Roboto', sans-serif;
-    background-color: #252525;
-}
-
-header {
+/* Основний контейнер заголовка */
+.header-blok {
+    width: 1300px;
+    height: 80px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1300px;
-    height: 80px;
     margin: 0 auto;
-    padding: 0 10px;
+    padding: 0 5px; /* Відступи зліва та справа */
+    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
 }
 
+/* Логотип */
 .header-logo {
-    height: 80px; /* Висота логотипа зафіксована на рівні висоти header */
-    object-fit: contain;
-    display: block;
-    text-decoration: none; /* Прибрати підкреслення */
+    width: 250px;
+    height: 100%;
+    background-image: url('path-to-logo.png'); /* Шлях до логотипу */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-color: #303030;
 }
 
-.header-meny {
+.header-logo:empty {
+    background-color: #303030;
+}
+
+/* Меню */
+.header-menu {
     display: flex;
-    align-items: center;
+    gap: 15px; /* Відстань між пунктами меню */
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+    font-style: normal;
 }
 
-.header-meny a {
-    text-decoration: none;
-    color: #00BFF5;
-    font-size: 18px;
-    margin-right: 25px;
+/* Посилання у меню */
+.header-menu a {
     position: relative;
-    padding: 5px 0;
-    overflow: hidden;
-    user-select: none; /* Запобігає виділенню тексту */
+    text-decoration: none;
+    color: #00BFF5; /* Статичний колір тексту */
+    font-size: 18px;
+    font-weight: bold;
+    padding: 10px 0;
+    transition: color 0.3s ease;
 }
 
-.header-meny a::before {
+/* Анімація полоски під посиланням */
+.header-menu a::after {
     content: '';
     position: absolute;
-    left: 50%;
-    bottom: 0;
-    width: 100%;
+    width: 0;
     height: 2px;
-    background: #FF81B2;
-    transform: translateX(-50%) scaleX(0);
-    transition: transform 0.3s ease;
+    background-color: #FF81B2; /* Колір полоски */
+    bottom: 0;
+    left: 50%;
+    transition: width 0.5s ease, left 0.5s ease;
 }
 
-.header-meny a:hover::before {
-    transform: translateX(-50%) scaleX(1);
+/* При наведенні полоска анімується */
+.header-menu a:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+/* Статичний колір тексту при наведенні */
+.header-menu a:hover {
+    color: #00BFF5; /* Текст не змінюється при наведенні */
 }
