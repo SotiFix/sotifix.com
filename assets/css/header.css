@@ -1,69 +1,81 @@
-/* Основний контейнер заголовка */
-.header-blok {
-    width: 1300px;
-    height: 80px;
+body{
+    background-color: #202020;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+header {
+    width: 1200px; /* Ширина header */
+    height: 80px;  /* Висота header */
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin: 0 auto;
-    padding: 0 5px; /* Відступи зліва та справа */
-    @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
-}
+    margin: 0 auto; /* Центрування header на сторінці */
+    padding: 0 10px; /* Внутрішні відступи */
 
-/* Логотип */
-.header-logo {
-    width: 250px;
-    height: 100%;
-    background-image: url('/assets/images/logo.png'); /* Шлях до логотипу */
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: left center;
-    background-color: #303030;
-}
-
-.header-logo:empty {
-    background-color: #303030;
-}
-
-/* Меню */
-.header-menu {
-    display: flex;
-    gap: 15px; /* Відстань між пунктами меню */
     font-family: "Roboto", sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
+    user-select: none;
 }
 
-/* Посилання у меню */
-.header-menu a {
-    position: relative;
-    text-decoration: none;
-    color: #00BFF5; /* Статичний колір тексту */
-    font-size: 18px;
-    font-weight: bold;
-    padding: 10px 0;
-    transition: color 0.3s ease;
+.logo {
+    width: 240px; /* Ширина логотипу */
+    height: 80px; /* Висота логотипу */
+    overflow: hidden; /* Сховати частини, що виходять за межі */
 }
 
-/* Анімація полоски під посиланням */
-.header-menu a::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    background-color: #FF81B2; /* Колір полоски */
-    bottom: 0;
-    left: 50%;
-    transition: width 0.5s ease, left 0.5s ease;
+.logo img {
+    width: 100%; /* Ширина зображення 100% від контейнера */
+    height: auto; /* Автоматичне збереження пропорцій */
+    object-fit: cover; /* Заповнити контейнер, зберігаючи пропорції */
+    pointer-events: none;
 }
 
-/* При наведенні полоска анімується */
-.header-menu a:hover::after {
-    width: 100%;
-    left: 0;
+.menu ul {
+    list-style: none; /* Вимкнути маркери списку */
+    display: flex; /* Вирівняти елементи в рядок */
+    gap: 15px; /* Відстань між кнопками */
+    margin: 0; /* Обнулити відступи списку */
+    padding: 0; /* Обнулити внутрішні відступи списку */
 }
 
-/* Статичний колір тексту при наведенні */
-.header-menu a:hover {
-    color: #00BFF5; /* Текст не змінюється при наведенні */
+.menu ul li a {
+    color: #ffffff; /* Колір тексту меню */
+    text-decoration: none; /* Вимкнути підкреслення */
+    font-size: 18px; /* Розмір тексту */
+    transition: color 0.3s; /* Анімація зміни кольору */
+}
+
+.menu ul li a:hover {
+    color: #00BFF5; /* Колір тексту при наведенні */
+}
+
+.menu ul li {
+    position: relative; /* Встановлюємо позицію для псевдоелемента */
+}
+
+.menu ul li a {
+    color: #00BFF5; /* Колір тексту меню */
+    text-decoration: none; /* Вимкнути підкреслення */
+    font-size: 18px; /* Розмір тексту */
+    transition: color 0.3s; /* Анімація зміни кольору */
+}
+
+.menu ul li a::after {
+    content: ""; /* Псевдоелемент для підкреслення */
+    position: absolute; /* Абсолютна позиція */
+    left: 50%; /* Центруємо по горизонталі */
+    bottom: 0; /* Підкреслення знизу */
+    width: 0; /* Початкова ширина */
+    height: 2px; /* Висота підкреслення */
+    background-color: #FF81B2; /* Колір підкреслення */
+    transition: width 0.4s ease, left 0.4s ease; /* Анімація ширини */
+}
+
+.menu ul li a:hover {
+    color: #FF81B2; /* Колір тексту при наведенні */
+}
+
+.menu ul li a:hover::after {
+    width: 100%; /* Ширина підкреслення на 100% */
+    left: 0; /* Зміщення на 0 для заповнення */
 }
